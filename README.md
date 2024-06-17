@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> This README.md file covers official geoserver builds. See [KOORDINATES.md](KOORDINATES.md)
+
 # A geoserver docker image
 
 This Dockerfile can be used to create images for all geoserver versions since 2.5.
