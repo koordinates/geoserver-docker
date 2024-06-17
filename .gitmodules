@@ -1,0 +1,3 @@
+[submodule "vendor/geoserver"]
+	path = vendor/geoserver
+	url = git@github.com:koordinates/geoserver-plus-kx.git

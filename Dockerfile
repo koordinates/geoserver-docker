@@ -58,15 +58,15 @@ FROM tomcat as download
 
 ARG GS_VERSION=2.25.1
 ARG GS_BUILD=release
-ARG WAR_ZIP_URL=https://downloads.sourceforge.net/project/geoserver/GeoServer/${GS_VERSION}/geoserver-${GS_VERSION}-war.zip
+ARG WAR_FILE=vendor/geoserver/src/web/app/target/geoserver.war
 ENV GEOSERVER_VERSION=$GS_VERSION
 ENV GEOSERVER_BUILD=$GS_BUILD
 
 WORKDIR /tmp
 
-RUN echo "Downloading GeoServer ${GS_VERSION} ${GS_BUILD}" \
-    && wget -q -O /tmp/geoserver.zip $WAR_ZIP_URL \
-    && unzip geoserver.zip geoserver.war -d /tmp/ \
+COPY ${WAR_FILE} /tmp/geoserver.war
+
+RUN echo "Extracting /tmp/geoserver.war (from ${WAR_FILE})" \
     && unzip -q /tmp/geoserver.war -d /tmp/geoserver \
     && rm /tmp/geoserver.war
 
